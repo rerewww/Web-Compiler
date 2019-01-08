@@ -60,7 +60,7 @@
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <h1>Example</h1>
-                <div id="note" contenteditable="true" style="border: 1px solid silver; height: 300px;">
+                <div id="note" contenteditable="true" style="border: 1px solid silver; height: 300px; margin-bottom: 15px;">
                     public class Test {
                         public static void main(String []args){
                             System.out.println("Hello World");

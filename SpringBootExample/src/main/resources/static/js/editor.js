@@ -9,7 +9,8 @@ var editor = {
             type:'POST',
             async: true,
             data: {
-                text: note.textContent
+                text: note.textContent,
+                lang: 'java'
             },
             dataType: 'json',
             success: function(response) {

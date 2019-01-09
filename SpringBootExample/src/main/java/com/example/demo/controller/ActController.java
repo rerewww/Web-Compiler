@@ -25,7 +25,9 @@ public class ActController {
     @ResponseBody
     @RequestMapping(value = "/compile.action", method = RequestMethod.POST)
     public ResultCompile compile (
-            @RequestParam("text") String text
+            @RequestParam("text") String text,
+            @RequestParam("lang") String lang
+
     ) {
         System.out.println("--------------- 요청된 코드 ---------------");
         System.out.println(text);

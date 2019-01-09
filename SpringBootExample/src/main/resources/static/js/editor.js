@@ -13,7 +13,10 @@ var editor = {
             },
             dataType: 'json',
             success: function(response) {
-
+                if (!response && !response.success) {
+                    return;
+                }
+                document.getElementById('resultElem').innerText = '결과 값 : ' + response.result;
             },
             error: function(response) {
             }

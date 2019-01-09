@@ -1,7 +1,6 @@
 package com.example.demo.process;
 
 import org.apache.commons.io.FilenameUtils;
-import org.springframework.util.StringUtils;
 
 import java.io.*;
 
@@ -11,9 +10,11 @@ import java.io.*;
 public class JavaCompiler implements Compiler {
     private static final String PREFIX_JAVA = "java";
     private static final String PREFIX_JAVAC = "javac";
+    private static final String PREFIX_JAVA_CLASS_PATH = "-cp";
 
     @Override
     public String compile(final File file) {
+	    StringBuilder result = new StringBuilder();
         try {
             // Make Class file
             this.executeCommand(new String[]{ PREFIX_JAVAC, file.getAbsolutePath() });
@@ -23,23 +24,22 @@ public class JavaCompiler implements Compiler {
             }
 
             System.out.println("클래스 파일 실행 중. . .");
-            StringBuilder result = this.executeCommand(new String[]{ PREFIX_JAVA, FilenameUtils.getBaseName(file.getName())});
-
-            if (StringUtils.isEmpty(result.toString())) {
-                System.out.println("결과가 빈 값이거나 NULL입니다.");
-                System.out.println("콘솔 스트림을 가져오지 못하는듯..");
-            }
+            result = this.executeCommand(new String[]{ PREFIX_JAVA, PREFIX_JAVA_CLASS_PATH,
+                    file.getParent(), FilenameUtils.getBaseName(file.getName())});
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
 
-        return "";
+        return result.toString();
     }
 
     @Override
     public StringBuilder executeCommand(final String[] command) throws IOException {
         ProcessBuilder processBuilder = new ProcessBuilder(command);
+	    processBuilder.redirectErrorStream(true);
+
         Process process = processBuilder.start();
+
         StringBuilder result = new StringBuilder();
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(process.getInputStream(), "MS949"))) {
             String line = bufferedReader.readLine();
@@ -49,6 +49,7 @@ public class JavaCompiler implements Compiler {
             }
             process.waitFor();
         } catch (InterruptedException e) {
+            System.out.println(e.getMessage());
         }
         process.destroy();
         return result;

@@ -24,8 +24,6 @@ public class CompileManager {
         }
 
         JavaCompiler javaCompiler = new JavaCompiler();
-        javaCompiler.compile(file);
-
-        return "success";
+        return javaCompiler.compile(file);
     }
 }

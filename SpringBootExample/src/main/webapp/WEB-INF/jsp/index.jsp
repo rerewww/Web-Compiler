@@ -3,26 +3,20 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>Simple Sidebar - Start Bootstrap Template</title>
-
     <!-- Bootstrap core CSS -->
     <link href="/resources/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="/resources/css/simple-sidebar.css" rel="stylesheet">
-
 </head>
 
 <body>
-
     <div id="wrapper">
-
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
@@ -35,7 +29,7 @@
                     <a href="/">Dashboard</a>
                 </li>
                 <li>
-                    <a href="/codingView.action">Coding</a>
+                    <a href="/codingView.action">Practice</a>
                 </li>
                 <li>
                     <a href="#">Overview</a>
@@ -69,7 +63,6 @@
 
     </div>
     <!-- /#wrapper -->
-
     <!-- Bootstrap core JavaScript -->
     <script src="/resources/lib/jquery.min.js"></script>
     <script src="/resources/lib/bootstrap.bundle.min.js"></script>
@@ -81,7 +74,5 @@
         $("#wrapper").toggleClass("toggled");
     });
     </script>
-
 </body>
-
 </html>

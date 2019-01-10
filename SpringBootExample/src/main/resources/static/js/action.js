@@ -1,15 +1,15 @@
 /**
  * Created by son on 2019-01-08.
  */
-var editor = {
+var action = {
     compile : function () {
-        var note = document.getElementById('note');
+        var note = document.getElementById('codemirrorArea');
         $.ajax({
             url: '/compile.action',
             type:'POST',
             async: true,
             data: {
-                text: note.textContent,
+                text: editor.getValue(),
                 lang: 'java'
             },
             dataType: 'json',

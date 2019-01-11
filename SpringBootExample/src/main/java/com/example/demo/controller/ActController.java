@@ -2,6 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.model.ResultCompile;
 import com.example.demo.process.CompileManager;
+import com.example.demo.service.ActService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,13 @@ import java.io.File;
 
 @Controller
 public class ActController {
+    ActService actService;
+
+    @Autowired
+    ActController(final ActService actService) {
+        this.actService = actService;
+    }
+    
     @RequestMapping("/")
     public String init() {
         return "index";
@@ -35,7 +44,7 @@ public class ActController {
         File workDir = new File("C:\\tmp");
         workDir.mkdirs();
 
-        String result = CompileManager.run(text);
+        String result = actService.run(text, lang);
 
         ResultCompile resultCompile = new ResultCompile();
         resultCompile.setSuccess(!StringUtils.isEmpty(result));

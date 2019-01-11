@@ -1,6 +1,8 @@
 package com.example.demo.process;
 
+import lombok.Setter;
 import org.apache.commons.io.FileUtils;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,21 +11,15 @@ import java.nio.charset.Charset;
 /**
  * Created by son on 2019-01-08.
  */
+@Service
 public class CompileManager {
-    public static String run(final String text) {
-        File file = new File("C:\\tmp\\Test.java");
-        try {
-            FileUtils.writeStringToFile(file, text, Charset.forName("utf-8"));
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
+    @Setter Compiler compiler;
 
-        if (!file.exists()) {
+    public String run(final Compiler compiler, final File srcFile) {
+        if (!srcFile.exists()) {
             System.out.println("파일이 존재하지 않습니다.");
             return "";
         }
-
-        JavaCompiler javaCompiler = new JavaCompiler();
-        return javaCompiler.compile(file);
+        return compiler.compile(srcFile);
     }
 }

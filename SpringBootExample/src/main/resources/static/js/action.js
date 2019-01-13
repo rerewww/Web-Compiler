@@ -10,7 +10,7 @@ var action = {
             async: true,
             data: {
                 text: editor.getValue(),
-                lang: 'java'
+                lang: document.getElementById('compileLangs').value
             },
             dataType: 'json',
             success: function(response) {

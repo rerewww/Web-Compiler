@@ -54,7 +54,13 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid" style="margin-bottom: 15px">
-                <h1>Example</h1>
+                <div>
+                    <h1>Example</h1>
+                    <select id="compileLangs">
+                        <option value="java">java</option>
+                        <option value="python">python</option>
+                    </select>
+                </div>
                 <textarea id="codemirrorArea">public class Test {
   public static void main(String []args) {
     System.out.println("Hello, World!");

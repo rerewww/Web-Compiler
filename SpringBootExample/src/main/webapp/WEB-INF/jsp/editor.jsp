@@ -55,8 +55,8 @@
         <div id="page-content-wrapper">
             <div class="container-fluid" style="margin-bottom: 15px">
                 <div>
-                    <h1>Example</h1>
-                    <select id="compileLangs">
+                    <h1 style="display: inline-block">1.Hello, World!를 출력하시오.</h1>
+                    <select id="compileLangs" onclick="action.select()" style="display: inline-block; float: right; margin-top: 20px;">
                         <option value="java">java</option>
                         <option value="python">python</option>
                     </select>

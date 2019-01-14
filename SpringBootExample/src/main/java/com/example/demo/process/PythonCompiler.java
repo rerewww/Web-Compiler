@@ -13,6 +13,7 @@ import java.nio.charset.Charset;
  */
 public class PythonCompiler implements Compiler {
 	private static final String PREFIX_PYTHON = "python";
+	private static final String SUB_PREFIX_PYTHON= "py";
 
 	@Override
 	public File getSrcFile(String text) {
@@ -34,6 +35,11 @@ public class PythonCompiler implements Compiler {
 			result = this.executeCommand(new String[]{ PREFIX_PYTHON, file.getAbsolutePath() });
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
+			try {
+				result = this.executeCommand(new String[]{ SUB_PREFIX_PYTHON, file.getAbsolutePath() });
+			} catch (IOException ex) {
+				System.out.println(ex.getMessage());
+			}
 		}
 
 		return result.toString();

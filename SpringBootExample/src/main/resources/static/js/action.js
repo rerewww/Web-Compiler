@@ -2,7 +2,7 @@
  * Created by son on 2019-01-08.
  */
 var action = {
-    compile : function () {
+    compile: function () {
         var note = document.getElementById('codemirrorArea');
         $.ajax({
             url: '/compile.action',
@@ -22,5 +22,14 @@ var action = {
             error: function(response) {
             }
         });
+    },
+
+    select: function () {
+        var elem = document.getElementById('compileLangs');
+        if ('java' === elem.value) {
+            editor.setValue('public class Test {\n	public static void main(String[] args) {\n		System.out.println(\"Hello, World!\");\n	}\n}');
+        } else if('python' === elem.value) {
+            editor.setValue('print(\'Hello, World!\')');
+        }
     }
 };

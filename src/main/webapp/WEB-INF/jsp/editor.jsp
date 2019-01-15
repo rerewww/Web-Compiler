@@ -61,19 +61,21 @@
                         <option value="python">python</option>
                     </select>
                 </div>
-                <textarea id="codemirrorArea">public class Test {
-  public static void main(String []args) {
-    System.out.println("Hello, World!");
-  }
-}
-                    </textarea>
+                <textarea id="codemirrorArea"></textarea>
+
+                <div style="margin: 10px 0px 10px 0px">
+                    <button class="btn btn-danger" onclick="action.compile()">Compile</button>
+                    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
                 </div>
-                <button onclick="action.compile()">Compile</button>
-                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+
+                <div style="height: 300px; border: 2px solid silver">
+                    <div style="border-bottom: 1px solid silver; font-weight: bold; font-size: 25px; text-indent: 10px">결과 값</div>
+                    <div id="resultElem" style="font-size: 20px; text-indent: 5px"></div>
+                </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-        <div id="resultElem"></div>
+    </div>
+    <!-- /#page-content-wrapper -->
     </div>
     <!-- /#wrapper -->
 
@@ -101,6 +103,7 @@
         matchBrackets: true,
         val: textarea.value
     });
+    editor.setValue('public class Test {\n	public static void main(String[] args) {\n		System.out.println(\"Hello, World!\");\n	}\n}');
     </script>
 </body>
 </html>

@@ -17,7 +17,7 @@ var action = {
                 if (!response && !response.success) {
                     return;
                 }
-                document.getElementById('resultElem').innerText = '결과 값 : ' + response.result;
+                document.getElementById('resultElem').innerText = response.result;
             },
             error: function(response) {
             }

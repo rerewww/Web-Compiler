@@ -8,7 +8,7 @@ import java.io.IOException;
  */
 public class JavascriptCompiler implements Compiler {
     @Override
-    public File getSrcFile(String text) {
+    public File getSrcFile(File file, String text) {
         return null;
     }
 

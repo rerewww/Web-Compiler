@@ -16,8 +16,8 @@ public class PythonCompiler implements Compiler {
 	private static final String SUB_PREFIX_PYTHON= "py";
 
 	@Override
-	public File getSrcFile(String text) {
-		File srcFile = new File("C:\\tmp\\Test.py");
+	public File getSrcFile(File parentFile, String text) {
+		File srcFile = new File(String.format("%s\\Test.py", parentFile.getAbsolutePath()));
 		try {
 			FileUtils.writeStringToFile(srcFile, text, Charset.forName("utf-8"));
 		} catch (IOException e) {

@@ -7,7 +7,7 @@ import java.io.IOException;
  * Created by son on 2019-01-08.
  */
 public interface Compiler {
-    File getSrcFile(final String text);
+    File getSrcFile(final File file, final String text);
     String compile(final File file);
     StringBuilder executeCommand(final String[] command) throws IOException;
 }

@@ -3,10 +3,13 @@ package com.example.demo.service;
 import com.example.demo.config.CompilerFactory;
 import com.example.demo.process.CompileManager;
 import com.example.demo.process.Compiler;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
 
 /**
  * Created by son on 2019-01-11.
@@ -24,8 +27,18 @@ public class ActService {
 
 	public String run(final String text, final String lang) {
 		Compiler compiler = compilerFactory.getCompiler(lang);
-		File srcFile = compiler.getSrcFile(text);
+		String uuid = UUID.randomUUID().toString();
 
-		return compileManager.run(compiler, srcFile);
+		File parentFile = new File(String.format("C:\\tmp\\%s", uuid));
+		parentFile.mkdirs();
+		File srcFile = compiler.getSrcFile(parentFile, text);
+
+		String result = compileManager.run(compiler, srcFile);
+		try {
+			FileUtils.forceDelete(srcFile.getParentFile());
+		} catch (IOException e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
 	}
 }

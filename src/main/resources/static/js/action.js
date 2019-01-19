@@ -2,6 +2,15 @@
  * Created by son on 2019-01-08.
  */
 var action = {
+    selectQuestion: function () {
+        var box = window.event.currentTarget;
+        var title = box.firstElementChild.textContent;
+        var content = box.lastElementChild.textContent;
+
+        var url = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/coding.action?title=" + title + "&content=" + content;
+        window.location.href = url;
+    },
+
     compile: function () {
         var note = document.getElementById('codemirrorArea');
         $.ajax({

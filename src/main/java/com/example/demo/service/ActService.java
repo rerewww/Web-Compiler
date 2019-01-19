@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.Charset;
 import java.util.UUID;
 
 /**
@@ -18,11 +19,13 @@ import java.util.UUID;
 public class ActService {
 	CompilerFactory compilerFactory;
 	CompileManager compileManager;
+    ClassLoader classLoader;
 
 	@Autowired
 	ActService(final CompilerFactory compilerFactory, final CompileManager compileManager) {
 		this.compilerFactory = compilerFactory;
 		this.compileManager = compileManager;
+		classLoader = getClass().getClassLoader();
 	}
 
 	public String run(final String text, final String lang) {
@@ -40,5 +43,17 @@ public class ActService {
 			System.out.println(e.getMessage());
 		}
 		return result;
+	}
+
+	public String getQuestionsJsonString() {
+		File jsonFile = new File(classLoader.getResource("questions.json").getFile());
+		String questions = "";
+		try {
+			questions = FileUtils.readFileToString(jsonFile, Charset.forName("utf-8"));
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+
+		return questions;
 	}
 }

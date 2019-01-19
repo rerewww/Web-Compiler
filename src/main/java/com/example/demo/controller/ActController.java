@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.ResultCompile;
-import com.example.demo.process.CompileManager;
 import com.example.demo.service.ActService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
 
@@ -54,7 +54,21 @@ public class ActController {
     }
 
     @RequestMapping("/codingView.action")
-    public String codingView() {
-        return "editor";
+    public ModelAndView codingView() {
+        ModelAndView mv = new ModelAndView("question");
+        mv.addObject("questions", actService.getQuestionsJsonString());
+        return mv;
+    }
+
+    @RequestMapping(value = "/coding.action")
+    public ModelAndView codingView(
+            @RequestParam("title") String title,
+            @RequestParam("content") String content
+    ) {
+        ModelAndView mv = new ModelAndView("editor");
+        mv.addObject("title", title);
+        mv.addObject("content", content);
+
+        return mv;
     }
 }

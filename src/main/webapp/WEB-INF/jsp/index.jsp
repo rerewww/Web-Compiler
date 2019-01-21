@@ -29,7 +29,7 @@
                     <a href="/">Dashboard</a>
                 </li>
                 <li>
-                    <a href="/codingView.action">Practice</a>
+                    <a href="/codingView.cmd">Practice</a>
                 </li>
                 <li>
                     <a href="#">Overview</a>

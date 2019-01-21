@@ -7,14 +7,14 @@ var action = {
         var title = box.firstElementChild.textContent;
         var content = box.lastElementChild.textContent;
 
-        var url = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/coding.action?title=" + title + "&content=" + content;
+        var url = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/coding.cmd?title=" + title + "&content=" + content;
         window.location.href = url;
     },
 
     compile: function () {
         var note = document.getElementById('codemirrorArea');
         $.ajax({
-            url: '/compile.action',
+            url: '/compile.cmd',
             type:'POST',
             async: true,
             data: {

@@ -10,6 +10,10 @@ Web Compiler (java, javascript, c, etc..)
 
 It consists of a web-based interface and uses Spring Boot.
 
+Support Languages
+-----------
+- java
+- python
 
 Quick Build
 -----------

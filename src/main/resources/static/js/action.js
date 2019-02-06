@@ -39,6 +39,8 @@ var action = {
             editor.setValue('public class Test {\n	public static void main(String[] args) {\n		System.out.println(\"Hello, World!\");\n	}\n}');
         } else if('python' === elem.value) {
             editor.setValue('print(\'Hello, World!\')');
+        } else if('javascript' === elem.value) {
+            editor.setValue('function solution() {\n     return;\n}');
         }
     }
 };

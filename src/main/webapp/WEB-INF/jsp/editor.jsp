@@ -59,6 +59,7 @@
                     <select id="compileLangs" onclick="action.select()" style="display: inline-block; float: right; margin-top: 20px;">
                         <option value="java">java</option>
                         <option value="python">python</option>
+                        <option value="javascript">javascript</option>
                     </select>
                 </div>
                 <textarea id="codemirrorArea"></textarea>

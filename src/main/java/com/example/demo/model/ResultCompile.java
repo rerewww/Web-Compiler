@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 /**
  * Created by son on 2019-01-08.
  */
@@ -15,5 +17,5 @@ import lombok.Setter;
 public class ResultCompile {
     private boolean success;
     private String message;
-    private String result;
+    private List<Boolean> result;
 }

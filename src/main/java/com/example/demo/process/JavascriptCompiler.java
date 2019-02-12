@@ -1,7 +1,12 @@
 package com.example.demo.process;
 
+import org.apache.commons.io.FileUtils;
+
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 /**
  * Created by son on 2019-01-17.
@@ -10,7 +15,7 @@ public class JavascriptCompiler implements Compiler {
     private static final String PREFIX_NODE = "node";
     @Override
     public File getSrcFile(File file, String text) {
-        File srcFile = new File(String.format("%s\\Test.js", parentFile.getAbsolutePath()));
+        File srcFile = new File(String.format("%s\\Test.js", file.getAbsolutePath()));
         try {
             FileUtils.writeStringToFile(srcFile, text, Charset.forName("utf-8"));
         } catch (IOException e) {

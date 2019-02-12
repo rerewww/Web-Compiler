@@ -3,13 +3,18 @@ package com.example.demo.service;
 import com.example.demo.config.CompilerFactory;
 import com.example.demo.process.CompileManager;
 import com.example.demo.process.Compiler;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.FileUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -28,21 +33,46 @@ public class ActService {
 		classLoader = getClass().getClassLoader();
 	}
 
-	public String run(final String text, final String lang) {
+	public List<Boolean> run(final String text, final String lang, final int number) {
 		Compiler compiler = compilerFactory.getCompiler(lang);
 		String uuid = UUID.randomUUID().toString();
 
 		File parentFile = new File(String.format("C:\\tmp\\%s", uuid));
 		parentFile.mkdirs();
-		File srcFile = compiler.getSrcFile(parentFile, text);
 
-		String result = compileManager.run(compiler, srcFile);
+		File jsonFile = new File(classLoader.getResource("questions.json").getFile());
+
+		String code = "";
+		List<Boolean> results = new ArrayList<>();
 		try {
-			FileUtils.forceDelete(srcFile.getParentFile());
+			JSONArray jsonArray = new JSONArray(FileUtils.readFileToString(jsonFile, Charset.forName("utf-8")));
+            JSONObject jsonObject = (JSONObject) jsonArray.get(number);
+			JSONArray step = (JSONArray) jsonObject.get("step");
+
+			for (int i = 0; i < step.length(); i++) {
+				JSONObject item = (JSONObject) step.get(i);
+				code = (String) jsonObject.get("code");
+				code = code.replace("replace_parameter", (String)item.get("parameter"));
+				code = code.replace("replace_code", text);
+
+				File srcFile = compiler.getSrcFile(parentFile, code);
+				String result = compileManager.run(compiler, srcFile);
+                String answer = (String) item.get("answer");
+
+                results.add(answer.equals(result));
+
+				try {
+					FileUtils.forceDelete(srcFile.getParentFile());
+				} catch (IOException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-		return result;
+
+		return results;
 	}
 
 	public String getQuestionsJsonString() {

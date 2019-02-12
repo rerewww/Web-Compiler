@@ -4,7 +4,7 @@
     "content": "Hello, World를 출력하세요."
   },
   {
-    "number": 2,
+    "number": 1,
     "title": "직사각형의 넓이",
     "content": "가로는 x이고 세로는 y인 직사각형의 넓이는?",
     "code" : "public class Test {\n public static void main(String[] args) {\n		Solution s = new Solution();\n    System.out.println(s.solution(replace_parameter));\n	}\n}\n\nreplace_code\n",

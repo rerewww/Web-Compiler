@@ -64,11 +64,13 @@ public class ActController {
     @RequestMapping(value = "/coding.cmd")
     public ModelAndView codingView(
             @RequestParam("title") String title,
-            @RequestParam("content") String content
+            @RequestParam("content") String content,
+            @RequestParam("number") int number
     ) {
         ModelAndView mv = new ModelAndView("editor");
         mv.addObject("title", title);
         mv.addObject("content", content);
+        mv.addObject("number", number);
 
         return mv;
     }

@@ -7,7 +7,7 @@ var action = {
         var title = box.firstElementChild.textContent;
         var content = box.lastElementChild.textContent;
 
-        var url = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/coding.cmd?title=" + title + "&content=" + content;
+        var url = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/coding.cmd?title=" + title + "&content=" + content + "&number=" + box.number;
         window.location.href = url;
     },
 
@@ -20,7 +20,7 @@ var action = {
             data: {
                 text: editor.getValue(),
                 lang: document.getElementById('compileLangs').value,
-                number: '1'
+                number: window.info.number
             },
             dataType: 'json',
             success: function(response) {

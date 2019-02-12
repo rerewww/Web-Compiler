@@ -94,6 +94,10 @@
         $("#wrapper").toggleClass("toggled");
     });
 
+    if (!window.info) {
+        window.info = {};
+    }
+    window.info.number = ${number};
     var textarea = document.getElementById('codemirrorArea');
     var editor = CodeMirror.fromTextArea(textarea, {
         lineNumbers: true,

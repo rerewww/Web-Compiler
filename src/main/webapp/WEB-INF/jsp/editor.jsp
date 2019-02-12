@@ -94,6 +94,10 @@
         $("#wrapper").toggleClass("toggled");
     });
 
+    if (!window.info) {
+        window.info = {};
+    }
+    window.info.number = ${number};
     var textarea = document.getElementById('codemirrorArea');
     var editor = CodeMirror.fromTextArea(textarea, {
         lineNumbers: true,
@@ -104,7 +108,7 @@
         matchBrackets: true,
         val: textarea.value
     });
-    editor.setValue('public class Test {\n	public static void main(String[] args) {\n		System.out.println(\"Hello, World!\");\n	}\n}');
+    editor.setValue('class Solution {\n	public int solution(int width, int height) {\n        int area = 0;\n        return area;\n	}\n}');
     </script>
 </body>
 </html>

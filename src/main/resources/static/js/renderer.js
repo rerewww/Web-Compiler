@@ -43,6 +43,7 @@ var renderer = {
                 col.appendChild(box);
                 row.appendChild(col);
 
+                box.number = question.number;
                 box.onclick = function() {
                     action.selectQuestion();
                 };

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
+import java.util.List;
 
 /**
  * Created by son on 2019-01-08.
@@ -35,7 +36,8 @@ public class ActController {
     @RequestMapping(value = "/compile.cmd", method = RequestMethod.POST)
     public ResultCompile compile (
             @RequestParam("text") String text,
-            @RequestParam("lang") String lang
+            @RequestParam("lang") String lang,
+            @RequestParam("number") int number
     ) {
         System.out.println("--------------- 요청된 코드 ---------------");
         System.out.println(text);
@@ -43,7 +45,7 @@ public class ActController {
         File workDir = new File("C:\\tmp");
         workDir.mkdirs();
 
-        String result = actService.run(text, lang);
+        List<Boolean> result = actService.run(text, lang, number);
 
         ResultCompile resultCompile = new ResultCompile();
         resultCompile.setSuccess(!StringUtils.isEmpty(result));
@@ -62,11 +64,13 @@ public class ActController {
     @RequestMapping(value = "/coding.cmd")
     public ModelAndView codingView(
             @RequestParam("title") String title,
-            @RequestParam("content") String content
+            @RequestParam("content") String content,
+            @RequestParam("number") int number
     ) {
         ModelAndView mv = new ModelAndView("editor");
         mv.addObject("title", title);
         mv.addObject("content", content);
+        mv.addObject("number", number);
 
         return mv;
     }

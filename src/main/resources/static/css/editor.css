@@ -1,0 +1,17 @@
+.quiz {
+    width: 50%;
+    float: left;
+    border: 2px solid black;
+    margin-top: 50px;
+}
+
+.container-fluid {
+    margin-bottom: 15px;
+    float: left;
+    width: 50%;
+    margin-top: 50px;
+}
+
+#page-content-wrapper {
+    background-color: black;
+}

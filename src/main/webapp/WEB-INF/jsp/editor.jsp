@@ -15,8 +15,9 @@
     <link href="/resources/css/simple-sidebar.css" rel="stylesheet">
     <link href="/resources/css/codemirror.css" rel="stylesheet">
     <link href="/resources/css/darcula.css" rel="stylesheet">
+    <link href="/resources/css/editor.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-color:#37485D">
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
@@ -53,9 +54,11 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <div class="container-fluid" style="margin-bottom: 15px">
+            <div class="quiz">
+                <h1 style="display: inline-block">${title}</h1>
+            </div>
+            <div class="container-fluid">
                 <div>
-                    <h1 style="display: inline-block">${title}</h1>
                     <select id="compileLangs" onclick="action.select()" style="display: inline-block; float: right; margin-top: 20px;">
                         <option value="java">java</option>
                         <option value="python">python</option>

@@ -55,29 +55,45 @@
     <!-- Header -->
     <div class="row">
         <div id="editor_header" class="col-md-12">
+            <h3 style="display: inline-block; color: white; margin: 10px;">${title}</h3>
             <select id="compileLangs" onclick="action.select()" class="btn btn-dark" style="display: inline-block; float: right; margin-top: 20px;">
                 <option value="java">java</option>
                 <option value="python">python</option>
                 <option value="javascript">javascript</option>
             </select>
-            <a href="#menu-toggle" class="btn btn-dark" style="float: right; margin-top: 20px; margin-right: 5px">Toggle Menu</a>
+            <a href="#menu-toggle" class="btn btn-dark" id="menu-toggle" style="float: right; margin-top: 20px; margin-right: 5px">Toggle Menu</a>
         </div>
     </div>
+    <div style="border-bottom: 1px solid black; margin-bottom: 10px; margin-top: 10px"></div>
     <!-- /Header -->
 
     <div class="row">
+        <!-- quiz content -->
         <div class="col-md-6">
-            <h1 style="display: inline-block">${title}</h1>
+            <h6 id="quiz0">문제 설명</h6>
+            <p id="quiz_content">${content}</p>
+            <div style="margin-top: 20px;"></div>
+            <h6 id="quiz0">제한 사항</h6>
+            <div style="margin-left: 5px; text-align: center; background: #202B3D; color: #B2C0CC; border-radius: 10px;">
+                <p style="padding-top: 5px;">
+                    클래스명과 메서드 명을 변경하지 마세요.
+                </p>
+                <p style="padding-bottom: 5px;">
+                    메서드의 파라미터 명을 변경하지 마세요.
+                </p>
+            </div>
         </div>
+        <!-- /quiz content -->
+
         <div class="col-md-6">
             <textarea id="codemirrorArea"></textarea>
 
             <div style="margin: 10px 0px 10px 0px">
-                <button class="btn btn-danger" onclick="action.compile()">Compile</button>
+                <button class="btn btn-danger" onclick="action.compile()">Run</button>
             </div>
 
             <div style="height: 300px; border: 2px solid silver">
-                <div style="border-bottom: 1px solid silver; font-weight: bold; font-size: 25px; text-indent: 10px">결과 값</div>
+                <div style="border-bottom: 1px solid silver; font-weight: bold; font-size: 15px; text-indent: 10px; color: white">실행 결과</div>
                 <div id="resultElem" style="font-size: 20px; text-indent: 5px"></div>
             </div>
         </div>
@@ -112,7 +128,7 @@
         matchBrackets: true,
         val: textarea.value
     });
-    editor.setValue('class Solution {\n	public int solution(int width, int height) {\n        int area = 0;\n        return area;\n	}\n}');
+    editor.setValue('class Solution {\n	public int solution(int width, int height) {\n      int area = 0;\n      return area;\n	}\n}');
 </script>
 </body>
 </html>

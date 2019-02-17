@@ -285,7 +285,7 @@
         <div id="page-content-wrapper">
             <div id="questions" class="grid">
                 <div style="margin: 10px 0px 10px 0px">
-                    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
+                    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Show Menu</a>
                 </div>
             </div>
         </div>

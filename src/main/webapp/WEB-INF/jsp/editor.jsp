@@ -61,7 +61,7 @@
                 <option value="python">python</option>
                 <option value="javascript">javascript</option>
             </select>
-            <a href="#menu-toggle" class="btn btn-dark" id="menu-toggle" style="float: right; margin-top: 20px; margin-right: 5px">Toggle Menu</a>
+            <a href="#menu-toggle" class="btn btn-dark" id="menu-toggle" style="float: right; margin-top: 20px; margin-right: 5px">Show Menu</a>
         </div>
     </div>
     <div style="border-bottom: 1px solid black; margin-bottom: 10px; margin-top: 10px"></div>
@@ -89,7 +89,7 @@
             <textarea id="codemirrorArea"></textarea>
 
             <div style="margin: 10px 0px 10px 0px">
-                <button class="btn btn-danger" onclick="action.compile()">Run</button>
+                <button class="btn btn-danger" style="width: 130px" onclick="action.compile()">Run</button>
             </div>
 
             <div style="height: 300px; border: 2px solid silver">

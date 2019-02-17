@@ -1,5 +1,6 @@
 package com.example.demo.process;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 
 import java.io.BufferedReader;
@@ -11,6 +12,7 @@ import java.nio.charset.Charset;
 /**
  * Created by son on 2019-01-17.
  */
+@Slf4j
 public class JavascriptCompiler implements Compiler {
     private static final String PREFIX_NODE = "node";
     @Override
@@ -19,7 +21,7 @@ public class JavascriptCompiler implements Compiler {
         try {
             FileUtils.writeStringToFile(srcFile, text, Charset.forName("utf-8"));
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            log.warn(e.getMessage(), e);
         }
 
         return srcFile;
@@ -32,7 +34,7 @@ public class JavascriptCompiler implements Compiler {
 			// Make Class file
 			result = this.executeCommand(new String[]{ PREFIX_NODE, file.getAbsolutePath() });
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
+            log.warn(e.getMessage(), e);
 		}
 
 		return result.toString();
@@ -54,7 +56,7 @@ public class JavascriptCompiler implements Compiler {
             }
             process.waitFor();
         } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
+            log.warn(e.getMessage(), e);
         }
         process.destroy();
         return result;

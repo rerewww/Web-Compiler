@@ -1,5 +1,6 @@
 package com.example.demo.process;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 
 import java.io.BufferedReader;
@@ -11,6 +12,7 @@ import java.nio.charset.Charset;
 /**
  * Created by son on 2019-01-11.
  */
+@Slf4j
 public class PythonCompiler implements Compiler {
 	private static final String PREFIX_PYTHON = "python";
 	private static final String SUB_PREFIX_PYTHON= "py";
@@ -21,7 +23,7 @@ public class PythonCompiler implements Compiler {
 		try {
 			FileUtils.writeStringToFile(srcFile, text, Charset.forName("utf-8"));
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
+			log.warn(e.getMessage(), e);
 		}
 
 		return srcFile;
@@ -34,11 +36,11 @@ public class PythonCompiler implements Compiler {
 			// Make Class file
 			result = this.executeCommand(new String[]{ PREFIX_PYTHON, file.getAbsolutePath() });
 		} catch (IOException e) {
-			System.out.println(e.getMessage());
+			log.warn(e.getMessage(), e);
 			try {
 				result = this.executeCommand(new String[]{ SUB_PREFIX_PYTHON, file.getAbsolutePath() });
 			} catch (IOException ex) {
-				System.out.println(ex.getMessage());
+				log.warn(e.getMessage(), e);
 			}
 		}
 
@@ -61,7 +63,7 @@ public class PythonCompiler implements Compiler {
 			}
 			process.waitFor();
 		} catch (InterruptedException e) {
-			System.out.println(e.getMessage());
+			log.warn(e.getMessage(), e);
 		}
 		process.destroy();
 		return result;

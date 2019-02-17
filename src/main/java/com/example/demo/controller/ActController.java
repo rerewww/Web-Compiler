@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.ResultCompile;
 import com.example.demo.service.ActService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -20,6 +21,7 @@ import java.util.List;
  * Created by son on 2019-01-08.
  */
 
+@Slf4j
 @Controller
 public class ActController {
     ActService actService;
@@ -41,9 +43,7 @@ public class ActController {
             @RequestParam("lang") String lang,
             @RequestParam("number") int number
     ) {
-        System.out.println("--------------- 요청된 코드 ---------------");
-        System.out.println(text);
-        System.out.println("------------------------------------------");
+        log.info("Requeste Code " + text);
         File workDir = new File("C:\\tmp");
         workDir.mkdirs();
 

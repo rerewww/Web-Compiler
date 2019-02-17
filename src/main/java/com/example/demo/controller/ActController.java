@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.List;
 
 /**
@@ -65,12 +67,17 @@ public class ActController {
     public ModelAndView codingView(
             @RequestParam("title") String title,
             @RequestParam("content") String content,
+            @RequestParam("editor") String editor,
             @RequestParam("number") int number
-    ) {
+    ) throws UnsupportedEncodingException {
         ModelAndView mv = new ModelAndView("editor");
         mv.addObject("title", title);
         mv.addObject("content", content);
         mv.addObject("number", number);
+
+        // URLEncoder에서 공백을 '+'로 인코딩 함으로 다시 %20(공백)으로 치환한다.
+        // 실제 '+'기호가 존재할 경우 인코딩은 %2B로 변환된다.
+        mv.addObject("editor", URLEncoder.encode(editor, "UTF-8").replaceAll("\\+", "%20"));
 
         return mv;
     }

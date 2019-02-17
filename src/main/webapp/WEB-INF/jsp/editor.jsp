@@ -128,7 +128,8 @@
         matchBrackets: true,
         val: textarea.value
     });
-    editor.setValue('class Solution {\n	public int solution(int width, int height) {\n      int area = 0;\n      return area;\n	}\n}');
+    editor.setValue(decodeURIComponent('${editor}'));
+    editor.setSize(null, 500);
 </script>
 </body>
 </html>

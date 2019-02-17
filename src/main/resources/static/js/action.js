@@ -6,13 +6,15 @@ var action = {
         var box = window.event.currentTarget;
         var title = box.firstElementChild.textContent;
         var content = box.lastElementChild.textContent;
+        var editor = encodeURIComponent(box.editor);
 
-        var url = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/coding.cmd?title=" + title + "&content=" + content + "&number=" + box.number;
-        window.location.href = url;
+        window.location.href = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/coding.cmd?title="
+            + title + "&content=" + content
+            + "&number=" + box.number
+            + "&editor=" + editor;
     },
 
     compile: function () {
-        var note = document.getElementById('codemirrorArea');
         $.ajax({
             url: '/compile.cmd',
             type:'POST',
@@ -28,16 +30,22 @@ var action = {
                     return;
                 }
 
+                var resultElem = $("#resultElem");
+                resultElem.empty();
+
                 var length = response.result.length;
                 var text = '';
                 for (var i = 0; i < length; i++) {
-                    if (i > 0) {
-                        text += '\n';
-                    }
-                    text += i + '번 테스트 케이스 ';
+                    text = (i + 1) + '번 테스트 케이스 ';
                     text += !!response.result[i] ? "성공" : "실패";
+
+                    var p = document.createElement("p");
+                    p.innerText = text;
+                    p.style = response.result[i] ? "color: greenyellow; margin: 5px" : "color: #FF3300; margin: 5px";
+                    resultElem.append(p);
                 }
-                document.getElementById('resultElem').innerText = text;
+                resultElem.css("font-weight", "bold");
+                resultElem.css("font-size", "18px");
             },
             error: function(response) {
             }

@@ -16,7 +16,7 @@ var renderer = {
                 }
 
                 var col = document.createElement('div');
-                var box = document.createElement('div');
+                var box = document.createElement('form');
                 var overlay = document.createElement('div');
                 var fa = document.createElement('div');
 
@@ -32,7 +32,9 @@ var renderer = {
 
                 var header = document.createElement('h1');
                 var title = question.title;
+                var number = question.number;
                 var content = question.content;
+                var editor = question.editor;
                 header.innerText = title;
                 overlay.innerText = content;
 
@@ -43,7 +45,9 @@ var renderer = {
                 col.appendChild(box);
                 row.appendChild(col);
 
-                box.number = question.number;
+                box.action = window.location.origin + "/coding.cmd";
+                box.number = number;
+                box.editor = editor;
                 box.onclick = function() {
                     action.selectQuestion();
                 };

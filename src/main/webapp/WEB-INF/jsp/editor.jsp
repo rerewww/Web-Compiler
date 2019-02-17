@@ -15,80 +15,100 @@
     <link href="/resources/css/simple-sidebar.css" rel="stylesheet">
     <link href="/resources/css/codemirror.css" rel="stylesheet">
     <link href="/resources/css/darcula.css" rel="stylesheet">
+    <link href="/resources/css/editor.css" rel="stylesheet">
 </head>
-<body>
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
-                </li>
-                <li>
-                    <a href="/">Dashboard</a>
-                </li>
-                <li>
-                    <a href="/codingView.cmd">Practice</a>
-                </li>
-                <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
+<body style="background-color:#37485D">
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand">
+                <a href="#">
+                    Start Bootstrap
+                </a>
+            </li>
+            <li>
+                <a href="/">Dashboard</a>
+            </li>
+            <li>
+                <a href="/codingView.cmd">Practice</a>
+            </li>
+            <li>
+                <a href="#">Overview</a>
+            </li>
+            <li>
+                <a href="#">Events</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Services</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Header -->
+    <div class="row">
+        <div id="editor_header" class="col-md-12">
+            <h3 style="display: inline-block; color: white; margin: 10px;">${title}</h3>
+            <select id="compileLangs" onclick="action.select()" class="btn btn-dark" style="display: inline-block; float: right; margin-top: 20px;">
+                <option value="java">java</option>
+                <option value="python">python</option>
+                <option value="javascript">javascript</option>
+            </select>
+            <a href="#menu-toggle" class="btn btn-dark" id="menu-toggle" style="float: right; margin-top: 20px; margin-right: 5px">Toggle Menu</a>
         </div>
-        <!-- /#sidebar-wrapper -->
+    </div>
+    <div style="border-bottom: 1px solid black; margin-bottom: 10px; margin-top: 10px"></div>
+    <!-- /Header -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid" style="margin-bottom: 15px">
-                <div>
-                    <h1 style="display: inline-block">${title}</h1>
-                    <select id="compileLangs" onclick="action.select()" style="display: inline-block; float: right; margin-top: 20px;">
-                        <option value="java">java</option>
-                        <option value="python">python</option>
-                        <option value="javascript">javascript</option>
-                    </select>
-                </div>
-                <textarea id="codemirrorArea"></textarea>
+    <div class="row">
+        <!-- quiz content -->
+        <div class="col-md-6">
+            <h6 id="quiz0">문제 설명</h6>
+            <p id="quiz_content">${content}</p>
+            <div style="margin-top: 20px;"></div>
+            <h6 id="quiz0">제한 사항</h6>
+            <div style="margin-left: 5px; text-align: center; background: #202B3D; color: #B2C0CC; border-radius: 10px;">
+                <p style="padding-top: 5px;">
+                    클래스명과 메서드 명을 변경하지 마세요.
+                </p>
+                <p style="padding-bottom: 5px;">
+                    메서드의 파라미터 명을 변경하지 마세요.
+                </p>
+            </div>
+        </div>
+        <!-- /quiz content -->
 
-                <div style="margin: 10px 0px 10px 0px">
-                    <button class="btn btn-danger" onclick="action.compile()">Compile</button>
-                    <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Toggle Menu</a>
-                </div>
+        <div class="col-md-6">
+            <textarea id="codemirrorArea"></textarea>
 
-                <div style="height: 300px; border: 2px solid silver">
-                    <div style="border-bottom: 1px solid silver; font-weight: bold; font-size: 25px; text-indent: 10px">결과 값</div>
-                    <div id="resultElem" style="font-size: 20px; text-indent: 5px"></div>
-                </div>
+            <div style="margin: 10px 0px 10px 0px">
+                <button class="btn btn-danger" onclick="action.compile()">Run</button>
+            </div>
+
+            <div style="height: 300px; border: 2px solid silver">
+                <div style="border-bottom: 1px solid silver; font-weight: bold; font-size: 15px; text-indent: 10px; color: white">실행 결과</div>
+                <div id="resultElem" style="font-size: 20px; text-indent: 5px"></div>
             </div>
         </div>
     </div>
-    <!-- /#page-content-wrapper -->
-    </div>
-    <!-- /#wrapper -->
+</div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="/resources/lib/jquery.min.js"></script>
-    <script src="/resources/lib/bootstrap.bundle.min.js"></script>
-    <script src="/resources/js/action.js"></script>
-    <script src="/resources/js/codemirror.js"></script>
-    <script src="/resources/js/clike.js"></script>
-    <!-- Menu Toggle Script -->
+<!-- Bootstrap core JavaScript -->
+<script src="/resources/lib/jquery.min.js"></script>
+<script src="/resources/lib/bootstrap.bundle.min.js"></script>
+<script src="/resources/js/action.js"></script>
+<script src="/resources/js/codemirror.js"></script>
+<script src="/resources/js/clike.js"></script>
+<!-- Menu Toggle Script -->
 
-    <script>
+<script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
@@ -108,7 +128,8 @@
         matchBrackets: true,
         val: textarea.value
     });
-    editor.setValue('class Solution {\n	public int solution(int width, int height) {\n        int area = 0;\n        return area;\n	}\n}');
-    </script>
+    editor.setValue(decodeURIComponent('${editor}'));
+    editor.setSize(null, 500);
+</script>
 </body>
 </html>

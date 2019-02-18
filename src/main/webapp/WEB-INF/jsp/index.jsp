@@ -22,29 +22,17 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        Start Bootstrap
+                        Menu
                     </a>
                 </li>
                 <li>
-                    <a href="/">Dashboard</a>
+                    <a href="/">Home</a>
                 </li>
                 <li>
                     <a href="/codingView.cmd">Practice</a>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a href="#">UserInfo</a>
                 </li>
             </ul>
         </div>
@@ -53,9 +41,9 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <h1>Example</h1>
-                <p>This templated has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+                <h1>Welcome!</h1>
+                <p>Solve your algorithmic problems and improve your skills.</p>
+                <p>Press the 'Show Menu' Button to start!</p>
                 <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Show Menu</a>
             </div>
         </div>

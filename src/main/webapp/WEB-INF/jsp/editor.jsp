@@ -24,29 +24,17 @@
         <ul class="sidebar-nav">
             <li class="sidebar-brand">
                 <a href="#">
-                    Start Bootstrap
+                    Menu
                 </a>
             </li>
             <li>
-                <a href="/">Dashboard</a>
+                <a href="/">Home</a>
             </li>
             <li>
                 <a href="/codingView.cmd">Practice</a>
             </li>
             <li>
-                <a href="#">Overview</a>
-            </li>
-            <li>
-                <a href="#">Events</a>
-            </li>
-            <li>
-                <a href="#">About</a>
-            </li>
-            <li>
-                <a href="#">Services</a>
-            </li>
-            <li>
-                <a href="#">Contact</a>
+                <a href="#">UserInfo</a>
             </li>
         </ul>
     </div>
@@ -55,7 +43,7 @@
     <!-- Header -->
     <div class="row">
         <div id="editor_header" class="col-md-12">
-            <h3 style="display: inline-block; color: white; margin: 10px;">${title}</h3>
+            <h3 style="display: inline-block; color: white; margin: 15px 0px 0px 15px;">${title}</h3>
             <select id="compileLangs" onclick="action.select()" class="btn btn-dark" style="display: inline-block; float: right; margin-top: 20px;">
                 <option value="java">java</option>
                 <option value="python">python</option>
@@ -64,13 +52,13 @@
             <a href="#menu-toggle" class="btn btn-dark" id="menu-toggle" style="float: right; margin-top: 20px; margin-right: 5px">Show Menu</a>
         </div>
     </div>
-    <div style="border-bottom: 1px solid black; margin-bottom: 10px; margin-top: 10px"></div>
+    <div style="border-bottom: 1px solid black; margin-top: 10px"></div>
     <!-- /Header -->
 
     <div class="row">
         <!-- quiz content -->
-        <div class="col-md-6">
-            <h6 id="quiz0">문제 설명</h6>
+        <div class="col-md-6" style="border-right: 1px solid black;">
+            <h6 id="quiz0" style="margin-top: 10px;">문제 설명</h6>
             <p id="quiz_content">${content}</p>
             <div style="margin-top: 20px;"></div>
             <h6 id="quiz0">제한 사항</h6>
@@ -85,7 +73,7 @@
         </div>
         <!-- /quiz content -->
 
-        <div class="col-md-6">
+        <div class="col-md-6" style="margin-top: 10px">
             <textarea id="codemirrorArea"></textarea>
 
             <div style="margin: 10px 0px 10px 0px">

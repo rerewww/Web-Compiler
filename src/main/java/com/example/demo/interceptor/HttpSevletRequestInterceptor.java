@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Slf4j
 public class HttpSevletRequestInterceptor extends HandlerInterceptorAdapter {
+	private static final String AUTH_KEY = "authentication";
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {

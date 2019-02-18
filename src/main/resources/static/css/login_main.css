@@ -349,7 +349,7 @@ iframe {
 }
 
 .login100-form-btn:hover {
-  background-color: #403866;
+  background-color: #403866 !important;
 }
 
 

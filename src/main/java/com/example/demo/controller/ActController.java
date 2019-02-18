@@ -34,14 +34,15 @@ public class ActController {
     }
     
     @RequestMapping("/")
-    public String init() {
+    public String init(final HttpSession httpSession) {
+        if ("test".equals(httpSession.getAttribute(AUTH_KEY))) {
+            return "index";
+        }
         return "login";
     }
 
-    @RequestMapping(value = "/login")
-    public String login(
-            final HttpSession httpSession
-    ) {
+    @RequestMapping(value = "/main")
+    public String login(final HttpSession httpSession) {
         if (!actService.checkLogin()) {
             log.warn("Failed Check login");
             return "/";
@@ -52,7 +53,8 @@ public class ActController {
     }
 
     @RequestMapping("/logout")
-    public String logout() {
+    public String logout(final HttpSession httpSession) {
+        httpSession.removeAttribute(AUTH_KEY);
         return "redirect:/";
     }
 

@@ -1,14 +1,15 @@
 package com.example.demo.service;
 
 import com.example.demo.config.CompilerFactory;
+import com.example.demo.model.UserVO;
 import com.example.demo.process.CompileManager;
 import com.example.demo.process.Compiler;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -28,11 +29,18 @@ public class ActService {
 	CompileManager compileManager;
     ClassLoader classLoader;
 
+	@Value("${admin.user.id}")
+	private String userId;
+
 	@Autowired
 	ActService(final CompilerFactory compilerFactory, final CompileManager compileManager) {
 		this.compilerFactory = compilerFactory;
 		this.compileManager = compileManager;
 		classLoader = getClass().getClassLoader();
+	}
+
+	public boolean checkLogin() {
+		return true;
 	}
 
 	public List<Boolean> run(final String text, final String lang, final int number) {

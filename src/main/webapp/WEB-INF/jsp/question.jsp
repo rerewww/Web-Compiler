@@ -252,7 +252,7 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="#">
+                    <a href="/">
                         Menu
                     </a>
                 </li>
@@ -264,6 +264,9 @@
                 </li>
                 <li>
                     <a href="#">UserInfo</a>
+                </li>
+                <li>
+                    <a href="/logout" style="margin-top: 20px; font-weight: bold;">Logout</a>
                 </li>
             </ul>
         </div>

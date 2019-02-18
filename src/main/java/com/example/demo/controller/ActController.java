@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -24,6 +25,7 @@ import java.util.List;
 @Slf4j
 @Controller
 public class ActController {
+    private static final String AUTH_KEY = "authentication";
     ActService actService;
 
     @Autowired
@@ -32,8 +34,28 @@ public class ActController {
     }
     
     @RequestMapping("/")
-    public String init() {
+    public String init(final HttpSession httpSession) {
+        if ("test".equals(httpSession.getAttribute(AUTH_KEY))) {
+            return "index";
+        }
+        return "login";
+    }
+
+    @RequestMapping(value = "/main")
+    public String login(final HttpSession httpSession) {
+        if (!actService.checkLogin()) {
+            log.warn("Failed Check login");
+            return "/";
+        }
+
+        httpSession.setAttribute(AUTH_KEY, "test");
         return "index";
+    }
+
+    @RequestMapping("/logout")
+    public String logout(final HttpSession httpSession) {
+        httpSession.removeAttribute(AUTH_KEY);
+        return "redirect:/";
     }
 
     @ResponseBody

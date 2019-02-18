@@ -8,7 +8,7 @@ var renderer = {
         var i = 0;
         while(i < questions.length) {
             var row = document.createElement('div');
-            while (row.childElementCount !== 3) { // row
+            while (row.childElementCount !== 5) { // row
                 var question = questions[i];
 
                 if (!question) {
@@ -21,7 +21,10 @@ var renderer = {
                 var fa = document.createElement('div');
 
                 row.className = 'row cf';
+
                 col.className = 'slide-in four col';
+                col.id = 'card_col';
+
                 box.className = 'box';
                 overlay.className = 'overlay';
                 fa.className = 'fa fa-commenting-o fa-3x';
@@ -30,13 +33,15 @@ var renderer = {
                 var span = document.createElement('span');
                 span.className = 'original';
 
-                var header = document.createElement('h1');
+                var header = document.createElement('h3');
                 var title = question.title;
                 var number = question.number;
                 var content = question.content;
                 var editor = question.editor;
                 header.innerText = title;
                 overlay.innerText = content;
+
+                header.style = "margin-top: 78px";
 
                 span.appendChild(header);
                 box.appendChild(span);

@@ -15,6 +15,8 @@
     <link href="/resources/css/simple-sidebar.css" rel="stylesheet">
     <link href="/resources/css/codemirror.css" rel="stylesheet">
     <link href="/resources/css/darcula.css" rel="stylesheet">
+    <link href="/resources/css/question.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/resources/css/font-awesome.min.css">
 
 
     <style class="cp-pen-styles">body{
@@ -23,9 +25,14 @@
         font-family: sans-serif;
     }
 
-    h1, h2, h3, h4, h5, h6, p{
+    h1, h2, h3, h4, h5, h6 {
         color: #fff;
-        font-weight: 200;
+        font-weight: bold;
+        font-family: Ubuntu-Bold;
+    }
+
+    p {
+        color: black;
     }
 
     a{
@@ -88,7 +95,8 @@
 
     .slide-in .overlay{
         background-color: #6addaa;
-        color: #fff;
+        color: darkslategray;
+        font-weight: bold;
         transform: translateX(-100%);
         -webkit-transition: transform 0.5s ease-out;
         -o-transition: transform 0.5s ease-out;

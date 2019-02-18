@@ -2,7 +2,7 @@
   {
     "number": 0,
     "title": "Hello, World!",
-    "content": "Hello, World를 출력하세요.",
+    "content": "Hello, World를 출력하세요",
     "code" : "public class Test {\n public static void main(String[] args) {\n		Solution s = new Solution();\n    System.out.println(s.solution(replace_parameter));\n	}\n}\n\nreplace_code\n",
     "editor" : "class Solution {\n	public String solution() {\n      String text = \"\";\n      return text;\n	}\n}",
     "step" : [
@@ -15,7 +15,7 @@
   {
     "number": 1,
     "title": "직사각형의 넓이",
-    "content": "가로는 x이고 세로는 y인 직사각형의 넓이는?",
+    "content": "가로는 x이고 세로는 y인 직사각형의 넓이는",
     "code" : "public class Test {\n public static void main(String[] args) {\n		Solution s = new Solution();\n    System.out.println(s.solution(replace_parameter));\n	}\n}\n\nreplace_code\n",
     "editor" : "class Solution {\n	public int solution(int width, int height) {\n      int area = 0;\n      return area;\n	}\n}",
     "step" : [
@@ -36,31 +36,91 @@
   {
     "number": 2,
     "title": "구구단 출력",
-    "content": "2단부터 9단까지 구구단을 출력하세요."
+    "content": "2단부터 9단까지 구구단을 출력하세요"
   },
   {
     "number": 3,
     "title": "피보나치 수열",
-    "content": "피보나치 수열에서 4백만 이하이면서 짝수인 항의 합은?"
+    "content": "피보나치 수열에서 4백만 이하이면서 짝수인 항의 합은"
   },
   {
     "number": 4,
     "title": "가장 작은 수",
-    "content": "1 ~ 20 사이의 어떤 수로도 나누어 떨어지는 가장 작은 수는?"
+    "content": "1 ~ 20 사이의 어떤 수로도 나누어 떨어지는 가장 작은 수는"
   },
   {
     "number": 5,
     "title": "피타고라스 수",
-    "content": "a + b + c = 1000이 되는 피타고라스 수는?"
+    "content": "a + b + c = 1000이 되는 피타고라스 수는"
   },
   {
     "number": 6,
     "title": "최대 값",
-    "content": "1000자리 숫자 안에서 이어지는 5자리 숫자의 곱 중 최대 값은?"
+    "content": "1000자리 숫자 안에서 이어지는 5자리 숫자의 곱 중 최대 값은"
   },
   {
     "number": 7,
     "title": "글자의 개수",
-    "content": "1부터 1000까지 영어로 썼을 때, 사용된 글자의 개수는?"
+    "content": "1부터 1000까지 영어로 썼을 때, 사용된 글자의 개수는"
+  },
+  {
+    "number": 8,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 9,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 10,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 11,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 12,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 13,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 14,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 15,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 16,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 17,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 18,
+    "title": "comming soon",
+    "content": "comming soon"
+  },
+  {
+    "number": 19,
+    "title": "comming soon",
+    "content": "comming soon"
   }
 ]

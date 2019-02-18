@@ -1,5 +1,6 @@
 package com.example.demo.process;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
@@ -9,6 +10,7 @@ import java.nio.charset.Charset;
 /**
  * Created by son on 2019-01-08.
  */
+@Slf4j
 public class JavaCompiler implements Compiler {
     private static final String PREFIX_JAVA = "java";
     private static final String PREFIX_JAVAC = "javac";
@@ -20,7 +22,7 @@ public class JavaCompiler implements Compiler {
         try {
             FileUtils.writeStringToFile(srcFile, text, Charset.forName("utf-8"));
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            log.warn(e.getMessage(), e);
         }
 
         return srcFile;
@@ -34,14 +36,14 @@ public class JavaCompiler implements Compiler {
             this.executeCommand(new String[]{ PREFIX_JAVAC, file.getAbsolutePath() });
             // Run Class file
             if (new File(file.getAbsolutePath().replace("java", "class")).exists()) {
-                System.out.println("클래스 파일을 만들었습니다. ");
+                log.info("Created a class file");
             }
 
-            System.out.println("클래스 파일 실행 중. . .");
+            log.info("Running is class file");
             result = this.executeCommand(new String[]{ PREFIX_JAVA, PREFIX_JAVA_CLASS_PATH,
                     file.getParent(), FilenameUtils.getBaseName(file.getName())});
         } catch (IOException e) {
-            System.out.println(e.getMessage());
+            log.warn(e.getMessage(), e);
         }
 
         return result.toString();
@@ -63,7 +65,7 @@ public class JavaCompiler implements Compiler {
             }
             process.waitFor();
         } catch (InterruptedException e) {
-            System.out.println(e.getMessage());
+            log.warn(e.getMessage());
         }
         process.destroy();
         return result;

@@ -10,4 +10,8 @@ import lombok.Getter;
 public class UserVO {
 	@Getter
 	private String userId;
+	@Getter
+	private String userName;
+	@Getter
+	private boolean isGuest;
 }

@@ -306,7 +306,7 @@
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-        renderer.createQuestion(${questions});
+        renderer.createQuestion(${questions}, ${isGuest});
     </script>
 </body>
 </html>

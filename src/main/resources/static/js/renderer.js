@@ -2,7 +2,7 @@
  * Created by son on 2019-01-19.
  */
 var renderer = {
-    createQuestion: function (questions) {
+    createQuestion: function (questions, isGuest) {
         var elemQuestions = document.getElementById('questions');
 
         var i = 0;

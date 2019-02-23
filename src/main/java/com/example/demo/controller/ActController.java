@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.ResultCompile;
+import com.example.demo.model.UserVO;
 import com.example.demo.service.ActService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,13 +43,16 @@ public class ActController {
     }
 
     @RequestMapping(value = "/main")
-    public String login(final HttpSession httpSession) {
+    public String login(
+            final HttpSession httpSession,
+            final UserVO userVO) {
         if (!actService.checkLogin()) {
             log.warn("Failed Check login");
             return "/";
         }
 
         httpSession.setAttribute(AUTH_KEY, "test");
+        httpSession.setAttribute("isGuest", userVO.isGuest());
         return "index";
     }
 
@@ -79,9 +83,10 @@ public class ActController {
     }
 
     @RequestMapping("/codingView.cmd")
-    public ModelAndView codingView() {
+    public ModelAndView codingView(final HttpSession session) {
         ModelAndView mv = new ModelAndView("question");
         mv.addObject("questions", actService.getQuestionsJsonString());
+        mv.addObject("isGuest", session.getAttribute("isGuest"));
         return mv;
     }
 

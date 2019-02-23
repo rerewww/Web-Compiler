@@ -4,7 +4,9 @@ var loginManager = {
             url: '/main',
             type:'POST',
             data: {
-                userId: "guest"
+                userId: "guest",
+                userName: "guest",
+                isGuest: true
             }
         });
     }

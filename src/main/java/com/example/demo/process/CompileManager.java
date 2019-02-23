@@ -2,12 +2,9 @@ package com.example.demo.process;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.charset.Charset;
 
 /**
  * Created by son on 2019-01-08.

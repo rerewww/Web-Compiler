@@ -15,6 +15,8 @@ var action = {
     },
 
     compile: function () {
+        $("#resultElem").empty()
+        $("#compileLoading").css('display', 'block');
         $.ajax({
             url: '/compile.cmd',
             type:'POST',
@@ -26,6 +28,7 @@ var action = {
             },
             dataType: 'json',
             success: function(response) {
+                $("#compileLoading").css('display', 'none');
                 if (!response && !response.success) {
                     return;
                 }

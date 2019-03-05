@@ -85,6 +85,7 @@
 
             <div style="height: 300px; border: 2px solid silver">
                 <div style="border-bottom: 1px solid silver; font-weight: bold; font-size: 15px; text-indent: 10px; color: white">실행 결과</div>
+                <img id="compileLoading" src="/resources/images/loading.gif" style="width: 50px; margin-left: 5px; margin-top: 5px; display: none;"/>
                 <div id="resultElem" style="font-size: 20px; text-indent: 5px"></div>
             </div>
         </div>
@@ -97,6 +98,7 @@
 <script src="/resources/js/action.js"></script>
 <script src="/resources/js/codemirror.js"></script>
 <script src="/resources/js/clike.js"></script>
+<script src="/resources/js/active-line.js"></script>
 <!-- Menu Toggle Script -->
 
 <script>

@@ -97,6 +97,7 @@
 <script src="/resources/js/action.js"></script>
 <script src="/resources/js/codemirror.js"></script>
 <script src="/resources/js/clike.js"></script>
+<script src="/resources/js/active-line.js"></script>
 <!-- Menu Toggle Script -->
 
 <script>

@@ -52,6 +52,7 @@
                 <option value="python">python</option>
                 <option value="javascript">javascript</option>
             </select>
+            <button id='vim' class="btn btn-dark" style="float: right; margin-top: 20px; margin-right: 5px;" onclick="options.vimMode()">vim</button>
             <a href="#menu-toggle" class="btn btn-dark" id="menu-toggle" style="float: right; margin-top: 20px; margin-right: 5px">Show Menu</a>
         </div>
     </div>
@@ -92,14 +93,15 @@
     </div>
 </div>
 
-<!-- Bootstrap core JavaScript -->
 <script src="/resources/lib/jquery.min.js"></script>
 <script src="/resources/lib/bootstrap.bundle.min.js"></script>
+<script src="/resources/lib/codemirror.js"></script>
+<script src="/resources/lib/active-line.js"></script>
+<script src="/resources/lib/vim.js"></script>
+
 <script src="/resources/js/action.js"></script>
-<script src="/resources/js/codemirror.js"></script>
 <script src="/resources/js/clike.js"></script>
-<script src="/resources/js/active-line.js"></script>
-<!-- Menu Toggle Script -->
+<script src="/resources/js/options.js"></script>
 
 <script>
     $("#menu-toggle").click(function(e) {
@@ -119,7 +121,8 @@
         mode: "text/x-java",
         styleActiveLine: true,
         matchBrackets: true,
-        val: textarea.value
+        val: textarea.value,
+        keyMap: "default"
     });
     editor.setValue(decodeURIComponent('${editor}'));
     editor.setSize(null, 500);

@@ -14,7 +14,7 @@ Support Languages
 -----------
 - java
 - python
-- 
+- javascript
 
 Quick Build
 -----------

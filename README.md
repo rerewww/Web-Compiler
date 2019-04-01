@@ -6,7 +6,7 @@ Web-Compiler
 
 Documentation
 -------------
-Web Compiler (java, javascript, c, etc..)
+Web Compiler
 
 It consists of a web-based interface and uses Spring Boot.
 
@@ -27,7 +27,7 @@ Quick Build
 ```
 mvn spring-boot:run
 ```
-4. connect to http://localhost:9999
+4. connect to http://localhost:your port
 
 
 Requirements

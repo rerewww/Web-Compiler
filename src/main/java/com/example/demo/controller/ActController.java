@@ -27,7 +27,7 @@ import java.util.List;
 @Controller
 public class ActController {
     private static final String AUTH_KEY = "authentication";
-    ActService actService;
+    private ActService actService;
 
     @Autowired
     ActController(final ActService actService) {
